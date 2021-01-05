@@ -57,12 +57,15 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        playerVars: 'autoplay': 1,
         height: '360',
         width: '640',
         videoId: '3IR5uSs3-fc',
+        playerVars: {
+         autoplay: 1        // Auto-play the video on load   
+        },
         events: {
             'onReady': onPlayerReady
+            onPlayerReady.target.mute();
         }
     });
 }
